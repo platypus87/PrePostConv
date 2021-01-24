@@ -51,10 +51,10 @@ public class GUI {
 			result.setText(convert.postfixToPrefix(input.getText()));
 			}catch(java.util.EmptyStackException e) {
 				JFrame err1 = new JFrame();
-				JOptionPane.showMessageDialog(err1, "Cannot Convert, check equation for accuracy","Alert",JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(err1, "'Popped' an empty stack, check equation for accuracy","Alert",JOptionPane.WARNING_MESSAGE);
 			}catch(StackNotEmpty e) {
 				JFrame err2 = new JFrame();
-				JOptionPane.showMessageDialog(err2,"Incorrect Format: Items left in Stack!","ALERT",JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(err2,"Items left in Stack! Check your equation format.","ALERT",JOptionPane.WARNING_MESSAGE);
 			}
 			
 		}
@@ -72,7 +72,7 @@ public class GUI {
 				}
 				catch (java.util.EmptyStackException e){
 					JFrame err1 = new JFrame();
-					JOptionPane.showMessageDialog(err1, "Cannot Convert, check equation for accuracy","Alert",JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(err1, "'Popped' and empty stack, check equation for accuracy","Alert",JOptionPane.WARNING_MESSAGE);
 				} catch (StackNotEmpty e) {
 					JFrame err2 = new JFrame();
 					JOptionPane.showMessageDialog(err2,"Incorrect Format: Items left in Stack!","ALERT",JOptionPane.WARNING_MESSAGE);

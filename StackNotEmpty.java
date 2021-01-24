@@ -11,7 +11,9 @@ public class StackNotEmpty extends RuntimeException{
 	 */
 	private static final long serialVersionUID = 1L;
 	private static final long serialID=314159;
-	public StackNotEmpty() {
+	
+	public long StackNotEmpty() {
 		System.out.println(serialID);
+		return serialID;
 	}
 }

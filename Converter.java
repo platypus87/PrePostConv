@@ -21,11 +21,20 @@ public class Converter {
 	public String prefixToPostfix(String expression) throws Exception {
 		Stack<String> revStack = new Stack<String>();
 		Stack<String> useStack = new Stack<String>();
-		StringTokenizer token = new StringTokenizer(expression);
+		//Used String[] because StringTokenizer is a legacy method
+		String[] token; 
 		
-		while(token.hasMoreTokens()) {
-			revStack.push(token.nextToken());
+		if(expression.contains(" ")) {
+			token = expression.split(" ");
+		}else {
+			System.out.println("in else statement");
+			token = expression.split("");
 		}
+		
+		for(int i = 0; i<token.length;i++) {
+			revStack.push(token[i]);
+		}
+		
 		while(!revStack.isEmpty()) {
 			if(!isOperator(revStack.peek())){
 				useStack.push(revStack.pop());
@@ -48,17 +57,22 @@ public class Converter {
 	public String postfixToPrefix(String expression) {
 		Stack<String> stack = new Stack<String>();
 		Stack<String> stackTwo = new Stack<String>();
-		StringTokenizer token = new StringTokenizer(expression, " ");
+		String [] token;
 		
 		//items go into stack reversed, not good for this operation
-		while(token.hasMoreTokens()) {
-		stack.push(token.nextToken());
+		if (expression.contains(" ")) {
+			token = expression.split(" ");
+		}else {
+			token = expression.split("");
 		}
+		
 		//reversed item order for proper operation
 		while(!stack.isEmpty()) {
 			stackTwo.push(stack.pop());
 		}
-		
+		for (int i= token.length-1;i>=0;i--) {
+			stackTwo.push(token[i]);
+		}
 		while(!stackTwo.isEmpty()) {
 			if(!isOperator(stackTwo.peek())) {
 				stack.push(stackTwo.pop());
